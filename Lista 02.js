@@ -1,5 +1,6 @@
-console.log(Tratamento("aaaaa0a"));
-function Tratamento(str) {
+console.log(Tratamento("a1b2c3d4e5f6"));
+function Tratamento() {
+    str = document.getElementById("InputFrase").value;
     let vetorText = str.split("");
     str = "";
     for(let c=0; c < vetorText.length; c++){
