@@ -138,3 +138,7 @@ function validaTexto(str) {
     }
   }
 }
+
+// 8. Escreva uma função que receba um número e retorne uma lista de objetos (id, nome e
+//  idade) aleatórios gerados dinamicamente. O código deve ser sequencial; use uma lista
+//  de nomes pré-definida; e gere idades entre 18 e 90 anos.

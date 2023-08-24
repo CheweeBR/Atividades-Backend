@@ -1,22 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
+    <style>
+        #ex02 {
+            display: flex;
+            flex-direction: row;
+            height: 300px;
+        }
+        #Imagem01 {
+            display: flex;
+            max-width: 30%;
+            height: 300px;
+        }
+        #setas {
+            display: flex;
+            padding-top: 150px;
+            padding-left: 5%;
+        }
+    </style>
+  </head>
+  <body>
     <div id="content">
-        <h2>Transformar palavras minúsculas em maiúsculas</h2>
+      <div id="ex01">
+
         <div id="Modal-Central">
-            <form id=InputFrase onsubmit="Tratamento()">
-                <p>Digite uma frase: </p>
-                <input id="Frase">
-            </form>
-            <p>Tratado</p>
-            <input id="FraseTratada">
+          <div id="InputFrase">
+            <p>Digite uma frase:</p>
+            <input id="Frase" />
+            <button onclick="Tratamento()">Tratar</button>
+          </div>
+          <p>Tratado</p>
+          <input id="FraseTratada" />
         </div>
+      </div>
+      <h2>2) 2 imagens que trocam de lado ao clicar</h2>
+      <div id="ex02">  
+        <div id="Imagem01">
+          <img
+            src="https://fotos.amomeupet.org/uploads/fotos/0x800_1568662224_5d7fe2d09bccd_hd.jpeg"
+            alt="dog-caramelo"
+          />
+        </div>
+        <h2 id="setas"> <   > </h2>
+        </div>
+        <div id="Imagem02"></div>
+      </div>
     </div>
     <script src="Lista 02.js"></script>
-</body>
+  </body>
 </html>
