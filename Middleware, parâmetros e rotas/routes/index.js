@@ -23,7 +23,19 @@ router.get('/b', function(req, res, next) {
 
 // EXERCICIO 03
 
-router.get('/ex03/:palavra', function(req, res) {
+router.get('/ex03', function(req, res) {
+  let palavra = req.query.palavra;
+  let vetor = palavra.split("");
+  let inverso = "";
+  for(let c=(vetor.length-1); c>=0;c--) {
+    inverso += vetor[c];
+  }
+  res.end(`<h1>${inverso}</h1>`);
+});
+
+// EXERCICIO 04
+
+router.get('/ex04/:palavra', function(req, res) {
   let vetor = req.params.palavra.split("");
   let inverso = "";
   for(let c=(vetor.length-1); c>=0;c--) {
@@ -31,6 +43,9 @@ router.get('/ex03/:palavra', function(req, res) {
   }
   res.end(`<h1>${inverso}</h1>`);
 });
+
+
+
 
 
 
