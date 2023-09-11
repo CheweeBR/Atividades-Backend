@@ -44,10 +44,32 @@ router.get('/ex04/:palavra', function(req, res) {
   res.end(`<h1>${inverso}</h1>`);
 });
 
+// EXERCICIO 05
 
-
-
-
+router.get('/ex05/:operacao', function(req, res) {
+  let x = parseFloat(req.query.x), y = parseFloat(req.query.y), op = req.params.operacao.toLowerCase(),result;
+  if(op == "soma") {
+    result = x+y;
+    res.end(`<h1>${x} + ${y} = ${result}</h1>`);
+  } else{
+    if(op == "subtração" || op == "subtracao") {
+      result = x-y;
+      res.end(`<h1>${x} - ${y} = ${result}</h1>`);
+    } else {
+      if(op == "divisão" || op == "divisao") {
+        result = x/y;
+        res.end(`<h1>${x} / ${y} = ${result}</h1>`);
+      } else {
+        if(op == "multiplicação" || op == "multiplicacao" ) {
+          result = x*y;
+          res.end(`<h1>${x} x ${y} = ${result}</h1>`);
+        } else{
+          res.end(`<h1>Opcao invalida!</h1>`);
+        }
+      }
+    }
+  } 
+});
 
 
 module.exports = router;
