@@ -71,5 +71,12 @@ router.get('/ex05/:operacao', function(req, res) {
   } 
 });
 
+// EXERCICIO 09
+
+const contadorRequisicoes = 0;
+
+router.get((req, res) => {
+  
+})
 
 module.exports = router;
