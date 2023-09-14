@@ -1,5 +1,6 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
+const app = express();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -19,6 +20,13 @@ router.get('/a', function(req, res) {
 
 router.get('/b', function(req, res, next) {
   res.end("<a href='/a'>Link para pagina A</a><br><img src='https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.PDycBrF3srLlWQGofRGyvgHaFj%26pid%3DApi&f=1&ipt=1e3d0b5d4670511c8b4e4c08ac1cf76f6159f077bd704c3a619b34cc4989ee65&ipo=images'alt='dog-caramelo'/>");
+});
+
+// EXERCICIO 02
+const ciclo = 0;
+router.get('/ex02', function(req, res) {
+  if(ciclo % 2 == 0) {}
+  res.end('/a');
 });
 
 // EXERCICIO 03
@@ -71,12 +79,33 @@ router.get('/ex05/:operacao', function(req, res) {
   } 
 });
 
+// EXERCICIO 08
+
+const verificador = function(req, res, next) {
+  if(req.params.id % 2 == 0 &&  req.params.id >=0) {
+    next();
+  } else {
+    res.end("<h1> Codigo invalido</h1>")
+  }
+}
+
+router.get('/ex08/:id', verificador, (req,res) =>{
+  res.end(`<h1> Curso de codigo: ${req.params.id} </h1>`);
+})
+
 // EXERCICIO 09
 
-const contadorRequisicoes = 0;
+let contadorRequisicoes = 0;
 
-router.get((req, res) => {
-  
-})
+const contagem = function (req,res,next) {
+  contadorRequisicoes++;
+  console.log(`Numeros de requisicoes: ${contadorRequisicoes}`);
+  next();
+};
+
+router.get('/contador', contagem,(req, res) => {
+  res.send("<h1> Me chamou?</h1>");
+});
+
 
 module.exports = router;
