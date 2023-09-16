@@ -1,6 +1,10 @@
 const express = require('express');
 const router = express.Router();
 const app = express();
+var bodyParser = require('body-parser');
+var urlencodeds = bodyParser.urlencoded({extended: false });
+app.use(bodyParser.json());
+
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -23,10 +27,16 @@ router.get('/b', function(req, res, next) {
 });
 
 // EXERCICIO 02
-const ciclo = 0;
+let ciclo = 0;
 router.get('/ex02', function(req, res) {
-  if(ciclo % 2 == 0) {}
-  res.end('/a');
+  if(ciclo % 2 == 0) {
+    ciclo++;
+    res.end("<a href='/a'>Link para pagina A</a><br><img src='https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.PDycBrF3srLlWQGofRGyvgHaFj%26pid%3DApi&f=1&ipt=1e3d0b5d4670511c8b4e4c08ac1cf76f6159f077bd704c3a619b34cc4989ee65&ipo=images'alt='dog-caramelo'/>");
+  } else {
+    ciclo++;
+    res.end("<a href='/b'>Link para pagina B</a><br><img src='https://fotos.amomeupet.org/uploads/fotos/0x800_1568662224_5d7fe2d09bccd_hd.jpeg'alt='dog-caramelo'/>");
+  }
+  
 });
 
 // EXERCICIO 03
@@ -79,6 +89,24 @@ router.get('/ex05/:operacao', function(req, res) {
   } 
 });
 
+// EXERCICIO 07
+
+router.get('/ex07', (req,res) =>{
+  res.sendFile('C:/Users/Tiago Eloy/Documents/GitHub/Atividades-Backend/Middleware, parâmetros e rotas/ex07.html');
+})
+
+const autenticador = function(req,res,next) {
+  let senhaIdeal = req.body.user + req.body.user;
+  if(req.body.pass != senhaIdeal){
+    res.end("<h1>Acesso negado!</h1>");
+  }else {
+    next();
+  }
+}
+router.post('/ex07/login',urlencodeds, autenticador,(req, res) => {
+  res.send(`<h1>Usuario: ${req.body.user},Senha: ${req.body.pass}, acesso permitido!`)
+})
+
 // EXERCICIO 08
 
 const verificador = function(req, res, next) {
@@ -103,9 +131,22 @@ const contagem = function (req,res,next) {
   next();
 };
 
-router.get('/contador', contagem,(req, res) => {
+router.get('/ex09', contagem,(req, res) => {
   res.send("<h1> Me chamou?</h1>");
 });
+
+// EXERCICIO 10
+
+router.get('/ex10/:n', (req,res) =>{
+  let vetor = req.params.n.split("+");
+  let media;
+  vetor = parseInt(vetor);
+  for(let c=0; c<vetor.length;c++){
+    media += vetor[c];
+  }
+  res.end(`<h1> media dos valores = ${media}</h1>`);
+})
+
 
 
 module.exports = router;
