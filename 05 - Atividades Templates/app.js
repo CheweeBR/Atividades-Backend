@@ -9,9 +9,17 @@ var usersRouter = require('./routes/users');
 
 var app = express();
 
+app.get("/",(req, res) => {
+  res.end("<h1> ola");
+})
+
 // view engine setup
+var mustacheExpress = require("mustache-express");
+var engine = mustacheExpress();
+app.engine("mustache", engine);
+
 app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
+app.set('view engine', 'mustache');
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -37,5 +45,9 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+app.listen(3000, ()=>{
+  console.log("Executando")
+})
 
 module.exports = app;
