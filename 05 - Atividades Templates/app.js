@@ -1,3 +1,5 @@
+// Tiago Eloy Possidonio Pereira - 2417677
+
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
@@ -8,10 +10,6 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
 var app = express();
-
-app.get("/",(req, res) => {
-  res.end("<h1> ola");
-})
 
 // view engine setup
 var mustacheExpress = require("mustache-express");
