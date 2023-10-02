@@ -6,8 +6,14 @@
     <title>Menu Principal</title>
 </head>
 <body>
-    <form action="/salvauser" method="POST">
-        Usuário:<input type="text" name="usuario">
-    </form>
+    {{#usuario}}
+        <h1> Bem vindo {{nome}} </h1>
+    {{/usuario}}
+    {{^usuario}}
+        <form action="/salvauser" method="POST">
+            Usuário:<input type="text" name="username">
+        </form>
+    {{/usuario}}
+</body>
 </body>
 </html>

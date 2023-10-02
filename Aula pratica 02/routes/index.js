@@ -3,13 +3,17 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res) {
-  res.render("index", null);
+  usuario = {
+    nome: req.session.user
+  }
+  res.render("index", usuario);
 });
 
 router.post('/salvauser', function(req, res) {
-  const {user} = req.body;
-  req.session.user = user;
-  res.redirect("/")
+
+    const userActive = req.body.username;
+    req.session.user = userActive;
+    res.redirect("/");
 });
 
 

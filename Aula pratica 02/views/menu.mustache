@@ -6,6 +6,11 @@
     <title>Menu Principal</title>
 </head>
 <body>
-    <h1> Bem vindo {{user}} </h1>
+    {{#usuario}}
+        <h1> Bem vindo {{nome}} </h1>
+    {{/usuario}}
+    {{^usuario}}
+        <h1> Bem vindo {{nome}} </h1>
+    {{/usuario}}
 </body>
 </html>
