@@ -7,13 +7,22 @@
 </head>
 <body>
     {{#usuario}}
-        <h1> Bem vindo {{nome}} </h1>
+        <h1> Bem vindo {{usuario.nome}} </h1>
     {{/usuario}}
     {{^usuario}}
+        <h1> Login </h1>
         <form action="/salvauser" method="POST">
             Usuário:<input type="text" name="username">
         </form>
     {{/usuario}}
+    <hr>
+    {{#Tarefa}}
+        <h2> Lista de tarefas </h2>
+        {{tarefas}}
+    {{/Tarefa}}
+    {{^Tarefa}}
+        <h2> Não há nenhuma tarefa cadastrada! </h2>
+    {{/Tarefa}}
 </body>
 </body>
 </html>
