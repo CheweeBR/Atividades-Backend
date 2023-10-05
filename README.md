@@ -1,7 +1,5 @@
 ## Atividades da Disciplina de Programação Web Back-end
 
-#### Esse repositório é destinado a realização de diversos exercícios para o aprendizado da disciplina de Backend
-
 ### Objetivos ❕
 
 #### Esse repositório tem como objetivo centralizar todos os exercícios que eu realizei durante a disciplina de Programação Web Back-end.
