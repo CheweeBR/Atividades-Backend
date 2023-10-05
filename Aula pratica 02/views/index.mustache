@@ -6,15 +6,13 @@
     <title>Menu Principal</title>
 </head>
 <body>
-    {{#usuario}}
-        <h1> Bem vindo {{usuario.nome}} </h1>
-    {{/usuario}}
-    {{^usuario}}
+    {{#nome}} <h1> Bem vindo {{.}} </h1>{{/nome}}
+    {{^nome}}
         <h1> Login </h1>
         <form action="/salvauser" method="POST">
             Usuário:<input type="text" name="username">
         </form>
-    {{/usuario}}
+    {{/nome}}
     <hr>
     {{#Tarefa}}
         <h2> Lista de tarefas </h2>

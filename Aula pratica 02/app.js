@@ -18,7 +18,6 @@ app.use(session({
   secret: 'Amilton', // Substitua por uma chave secreta real
   resave: false,
   saveUninitialized: true,
-  store: new FileStore() // Substitua por outro mecanismo de armazenamento se preferir
 }));
 
 
